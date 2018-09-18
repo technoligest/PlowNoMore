@@ -1,0 +1,14 @@
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/bin/Debug/netcoreapp2.1/PlowNoMoreAPI.deps.json
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/bin/Debug/netcoreapp2.1/PlowNoMoreAPI.runtimeconfig.json
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/bin/Debug/netcoreapp2.1/PlowNoMoreAPI.runtimeconfig.dev.json
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/bin/Debug/netcoreapp2.1/PlowNoMoreAPI.dll
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/bin/Debug/netcoreapp2.1/PlowNoMoreAPI.pdb
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.csprojAssemblyReference.cache
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.csproj.CoreCompileInputs.cache
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.RazorAssemblyInfo.cache
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.RazorAssemblyInfo.cs
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.AssemblyInfoInputs.cache
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.AssemblyInfo.cs
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.RazorTargetAssemblyInfo.cache
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.dll
+/Users/yaseralkayale/Documents/current/Personal/coding/PlowNoMore/PlowNoMoreAPI/PlowNoMoreAPI/obj/Debug/netcoreapp2.1/PlowNoMoreAPI.pdb
