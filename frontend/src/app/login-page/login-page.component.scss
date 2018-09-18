@@ -1,0 +1,22 @@
+.login-form {
+  width: 85vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+  margin: auto;
+  .login-button-section{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    display: flex;
+    width: 88px;
+    .separator{
+      width: 44px;
+    }
+  }
+}
+.login > * {
+  width: 100%;
+}

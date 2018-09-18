@@ -1,0 +1,37 @@
+<form class="signup-form">
+  <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Your first name</mat-label>
+      <input matInput placeholder="First name." [formControl]='firstNameValidator' required>
+      <mat-error *ngIf="firstNameValidator.invalid">{{firstNameErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Your last name</mat-label>
+      <input matInput placeholder="Last name." [formControl]='lastNameValidator' required>
+      <mat-error *ngIf="lastNameValidator.invalid">{{lastNameErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Your email</mat-label>
+      <input matInput placeholder="Enter your email" [formControl]='emailValidator' required>
+      <mat-error *ngIf="emailValidator.invalid">{{emailErrorMessage()}}</mat-error>
+    </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Choose a long password.</mat-label>
+    <input matInput
+           required
+           placeholder="Don't worry, we won't share it with anyone."
+          [formControl]='passwordValidator'
+           type='password' 
+           #passwordField>
+    <mat-error *ngIf="passwordValidator.invalid">{{passwordErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Confirm your password.</mat-label>
+    <input matInput
+           required
+           placeholder="Just to make sure."
+           [formControl]='passwordConfirmValidator'
+           type='password'
+           #passwordConfirmField>
+    <mat-error *ngIf="passwordConfirmValidator.invalid">{{passwordConfirmErrorMessage()}}</mat-error>
+  </mat-form-field>
+</form>

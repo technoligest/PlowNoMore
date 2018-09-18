@@ -1,0 +1,16 @@
+:host{
+  .header {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    .title-text {
+      margin: auto;
+      width: 100vw;
+    }
+    .header-button {
+      margin-right: 40px;
+      margin-left: auto; 
+    }
+  }
+}

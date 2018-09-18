@@ -1,0 +1,76 @@
+<div class="header">
+  <h1 class="title-text">
+    Customer Edit
+  </h1>
+</div>
+<form class="customer-form" (ngSubmit)="saveCustomer()" #editCustomerForm="ngForm">
+  <mat-form-field class="form-field">
+      <input matInput placeholder="Name" [formControl]='nameValidator'  name="name" required>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input matInput placeholder="Email" [formControl]='emailValidator'  name="email" required>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input matInput placeholder="Phone" [formControl]='phoneValidator'  name="phone" required>
+  </mat-form-field>
+  <div class="submit-buttons">
+    <button mat-raised-button color="warn" class="submit-button" type="button" (click)="onFormCancel()">
+      Cancel
+    </button>
+    <div class="separator"></div>
+    <button mat-raised-button color="accent" class="submit-button" type="submit">
+      Save
+    </button>
+  </div>
+</form>
+
+<div *ngIf="customerIsUploaded">
+  <button mat-raised-button color="accent" class="add-button" type="button" (click)="addNewInvoice()">
+    Add Invoice
+  </button>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Invoices
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let invoice of customerInvoices" (click)="routeToInvoice(invoice.id)">
+          <!-- <a matLine href="...">{{ customer.name }}</a> -->
+          <div matLine class="item-line">
+            {{ invoice.date }}
+            <div class="item-line-right-side"> ${{invoice.amount}}</div>
+          </div>         
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button mat-raised-button color="accent" class="add-button" type="submit">
+    Add Quote
+  </button>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Quotes
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let quote of customerQuotes" (click)="routeToQuote(quote.id)">
+          <div matLine class="item-line">
+            {{ quote.date }}
+            <div class="item-line-right-side"> ${{ quote.amount }}</div>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<!-- margin-left: auto -->
