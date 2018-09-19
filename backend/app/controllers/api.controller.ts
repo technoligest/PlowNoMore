@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-import { Invoice, Item, Customer, CustomerSummary, Quote} from '../general.classes'
-import { customers, invoices, quotes} from '../general.classes/Globals';
+import { Invoice, Item, Customer, CustomerSummary, Quote} from '../../commonClasses'
+import { customers, invoices, quotes} from '../../commonClasses/Globals';
 const router: Router = Router();
 
 // The / here corresponds to the route that the WelcomeController
@@ -74,6 +74,29 @@ router.post('/addCustomer', (req: Request, res: Response)=>{
         }
     }
     res.send(customerToAdd);
+});
+
+router.post('/addInvoice', (req: Request, res: Response)=>{
+    let invoiceToAdd: Invoice = req.body;
+    if(!invoiceToAdd){
+        let invoiceFound: boolean = false;
+        invoices.forEach((invoice: Invoice)=>{
+            if(invoice.id === invoiceToAdd.id){
+                invoice = invoiceToAdd;
+                invoiceFound = true;
+            }
+        })
+        if(!invoiceFound) {
+            invoices.push(invoiceToAdd);
+        }
+    }
+    console.log(invoiceToAdd);
+    res.send(invoiceToAdd);
+});
+
+router.post('/emailInvoice/:invoiceId', (req: Request, res: Response)=>{
+    const {invoiceId}: {invoiceId:string} = req.params;
+    let invoice: Invoice;
 });
 
 // Export the express.Router() instance to be used by server.ts
