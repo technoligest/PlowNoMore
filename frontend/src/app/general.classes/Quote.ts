@@ -1,6 +1,4 @@
 import { AccountingForm } from './AccountingForm';
-import { Invoice } from './Invoice';
-import { Customer } from './Customer';
 import { Item } from './Item';
 
 export class Quote extends AccountingForm {
@@ -9,7 +7,7 @@ export class Quote extends AccountingForm {
               public customerId: string,
               public items: Item[],
               public validUntil: Date,
-              public invoiceId: string) {
+              public invoiceId?: string) {
                 super(id, date, customerId, items);
               }
 }

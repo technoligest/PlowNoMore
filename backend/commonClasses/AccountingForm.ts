@@ -2,7 +2,7 @@ import { Item } from './Item';
 
 export class AccountingForm {
   constructor(public id: string,
-              public date: Date,
+              public dateIssued: string,
               public customerId: String,
               public items: Item[]) {}
   public get amount(): number {

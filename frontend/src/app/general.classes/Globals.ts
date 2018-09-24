@@ -10,10 +10,14 @@ export const Validators = {
   dateValidatorList: [Valids.required]
 };
 
-// export const baseUrl = 'http://plownomore.azurewebsites.net/api/';
 export const baseUrl = 'http://localhost:3000/api/';
+// export const baseUrl = 'https://plownomore.azurewebsites.net/api/';
 
 
 export const stringResources = {
 
+};
+
+export const features = {
+  enableEmailing: false
 };

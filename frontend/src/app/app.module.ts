@@ -5,11 +5,6 @@ import { FormsModule,
          ReactiveFormsModule
         } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
-import { UserFeedComponent } from './userfeed.component/userfeed.component';
-import { NavbarComponent } from './navbar.component/navbar.component';
-import { SignupFormComponent } from './signupForm.component/signupForm.component';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule,
          MatMenuModule,
@@ -24,46 +19,32 @@ import { MatButtonModule,
          MatNativeDateModule,
          MatSnackBarModule
          } from '@angular/material';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { InvoiceComponent } from './invoice/invoice.component';
-import { SeparatorComponent } from './separator/separator.component';
-import { InvoicingMainComponent } from './invoicing-main/invoicing-main.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { NewItemComponent } from './new-item/new-item.component';
+import { CustomerComponent } from './components/customer.component/customer.component';
+import { CustomerListComponent } from './components/customer-list.component/customer-list.component';
+import { InvoiceComponent } from './components/invoice.component/invoice.component';
+import { LoginPageComponent } from './components/login-page.component/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TestAppComponent } from './app.component/app.component';
+import { InvoicingMainComponent } from './components/invoicing-main/invoicing-main.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
-  { path: 'navbar', component: NavbarComponent },
   { path: 'customerlist', component: CustomerListComponent },
   { path: 'customer', component: CustomerComponent },
   { path: 'customer/:id', component: CustomerComponent },
   { path: 'invoice/:id', component: InvoiceComponent },
   { path: 'invoice', component: InvoiceComponent },
-  // { path: 'quote/:id', component: }
-  { path: 'newitem', component: NewItemComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
-    UserFeedComponent,
-    NavbarComponent,
-    UserFeedComponent,
-    SignupFormComponent,
     CustomerComponent,
     CustomerListComponent,
     InvoiceComponent,
-    SeparatorComponent,
-    InvoicingMainComponent,
     LoginPageComponent,
-    NewItemComponent,
-    NewItemComponent,
-    TestAppComponent
+    InvoicingMainComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

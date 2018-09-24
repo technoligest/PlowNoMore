@@ -3,18 +3,23 @@ import { Item } from './Item';
 
 export class Invoice extends AccountingForm {
   constructor(public id: string,
-              public date: Date,
+              public dateIssued: string,
               public customerId: string,
               public items: Item[],
               public completed: boolean,
               public paid: boolean) {
-      super(id, date, customerId, items);
+      super(id, dateIssued, customerId, items);
     }
 
   public cloneFrom(invoice: Invoice) {
     this.id = invoice.id;
-    this.date = invoice.date;
+    this.dateIssued = invoice.dateIssued;
     this.customerId = invoice.customerId;
+    if (invoice.items){
+      invoice.items.forEach( (item: Item) => {
+        this.items.push(item);
+      });
+    };
     this.items = invoice.items;
     this.completed = invoice.completed;
     this.paid = invoice.paid;
