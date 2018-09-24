@@ -1,0 +1,31 @@
+:host{
+  .customer-form{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    margin: auto;
+    .submit-buttons{
+      margin: auto;
+      margin-bottom: 50px;
+      text-align: center;
+      display: flex;
+      width: 220px;
+      .separator{
+        width: 44px;
+      }
+    }
+  }
+  .customer-form > * {
+    width: 100%;
+  }
+  .item-line {
+    display: flex;
+    .item-line-right-side {
+      margin-left: auto;
+    }
+  }
+  .add-button{
+    width: 100%;
+    margin-top: 30px;
+  }
+}

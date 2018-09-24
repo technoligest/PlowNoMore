@@ -1,0 +1,5 @@
+{
+  "git.ignoreLimitWarning": true,
+  "appService.defaultWebAppToDeploy": "/subscriptions/dccb63b5-f6c1-4384-869c-709056b8ba32/resourceGroups/PlowNoMoreRG/providers/Microsoft.Web/sites/plownomore",
+  "appService.deploySubpath": ""
+}
