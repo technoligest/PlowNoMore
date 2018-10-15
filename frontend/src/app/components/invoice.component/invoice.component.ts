@@ -51,28 +51,40 @@ export class InvoiceComponent implements OnInit {
     this.router.navigate(['customer/' + this.invoice.customerId]);
   }
 
-  private saveFormAndCallBack(callback?: () => void) {
+  private saveNewValidatedInvoice(callback?: () => void ) {
+    this.invoiceService.addInvoice(this.invoice).subscribe((invoice: Invoice) => {
+      this.invoice.id = invoice.id;
+      this.snackBar.open('Invoice has been successfully saved.', 'OK');
+      callback();
+    });
+  }
+
+  private updateValidatedInvoice(callback?: () => void ) {
+    this.invoiceService.updateInvoice(this.invoice).subscribe((updatedInvoice: Invoice) => {
+      updatedInvoice = this.invoiceService.createInvoiceFromGenericObject(updatedInvoice);
+      if (this.invoice.equals(updatedInvoice)) {
+        this.snackBar.open('Invoice has been successfully saved.', 'OK');
+      } else {
+        this.snackBar.open('Invoice NOT saved. Contact Yaser.', 'OK');
+      }
+      callback();
+    });
+  }
+
+  private saveValidatedForm(callback?: () => void ) {
+    this.invoice.dateIssued = this.invoiceDateValidator.value;
+    if (this.invoice.id === '') {
+      this.saveNewValidatedInvoice(callback);
+    } else {
+      this.updateValidatedInvoice(callback);
+    }
+  }
+
+  private async saveFormAndCallBack(callback?: () => void) {
     if (!this.invoiceFormIsValidated()) {
       this.snackBar.open('Please input date.', 'Ok', {duration: 2000});
     } else {
-      this.invoice.dateIssued = this.invoiceDateValidator.value;
-      if (this.invoice.id === '') {
-        this.invoiceService.addInvoice(this.invoice).subscribe((invoice: Invoice) => {
-          this.invoice.id = invoice.id;
-          this.snackBar.open('Invoice has been successfully saved.', 'OK');
-          callback();
-        });
-      } else {
-        this.invoiceService.updateInvoice(this.invoice).subscribe((updatedInvoice: Invoice) => {
-          updatedInvoice = this.invoiceService.createInvoiceFromGenericObject(updatedInvoice);
-          if (this.invoice.equals(updatedInvoice)) {
-            this.snackBar.open('Invoice has been successfully saved.', 'OK');
-          } else {
-            this.snackBar.open('Invoice NOT saved. Contact Yaser.', 'OK');
-          }
-          callback();
-        });
-      }
+      this.saveValidatedForm(callback);
     }
   }
 
@@ -98,7 +110,7 @@ export class InvoiceComponent implements OnInit {
         (this.newItemCostValidator.value as number)
       ));
       this.snackBar.open('Item has been added!', 'Yaay', {duration: 5000});
-      //TODO: Reseting is keepingthe inputs red.
+      //TODO: Reseting is keeping the inputs red.
       this.newItemCostValidator.reset();
       this.newItemDescriptionValidator.reset();
     } else {

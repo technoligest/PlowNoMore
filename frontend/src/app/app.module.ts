@@ -23,8 +23,12 @@ import { CustomerComponent } from './components/customer.component/customer.comp
 import { CustomerListComponent } from './components/customer-list.component/customer-list.component';
 import { InvoiceComponent } from './components/invoice.component/invoice.component';
 import { LoginPageComponent } from './components/login-page.component/login-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InvoicingMainComponent } from './components/invoicing-main/invoicing-main.component';
+import { FacebookModule } from 'ngx-facebook';
+import { LogoutComponent } from './components/logout/logout.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { TokenInterceptor } from './services/interceptor';
 
 
 const appRoutes: Routes = [
@@ -44,10 +48,13 @@ const appRoutes: Routes = [
     CustomerListComponent,
     InvoiceComponent,
     LoginPageComponent,
-    InvoicingMainComponent
+    InvoicingMainComponent,
+    LogoutComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
+    FacebookModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -67,9 +74,17 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [
-    InvoicingMainComponent
+    InvoicingMainComponent,
+    LogoutComponent,
+    FooterComponent
   ]
 })
 export class AppModule { }

@@ -13,6 +13,7 @@ import {
 } from '../../general.classes/Globals';
 import { MatSnackBar } from '@angular/material';
 import { LoginService } from '../../services/login.service';
+import { FacebookService, InitParams, LoginStatus } from 'ngx-facebook';
 
 @Component({
   selector: 'app-login-page',
@@ -26,7 +27,8 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private router: Router,
               public loginSnackBar: MatSnackBar,
-              private loginService: LoginService) {}
+              private loginService: LoginService){
+  }
 
   ngOnInit() {}
 
@@ -45,5 +47,15 @@ export class LoginPageComponent implements OnInit {
           }
         }
     );
+  }
+
+  public facebookLogin() {
+    this.loginService.facebookLogin().then((isLoggedIn: boolean) => {
+      if (isLoggedIn) {
+        console.log("Logged Into FAcebook!!");
+      } else {
+        console.log("NOT Logged into facebook");
+      }
+    });
   }
 }

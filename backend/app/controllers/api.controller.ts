@@ -9,7 +9,6 @@ import {
     CustomerSummary,
     Quote
        } from '../../commonClasses'
-import { quotes } from '../../commonClasses/Globals';
 import { ConnectionConfig } from 'tedious';
 import { Database } from '../database';
 import { sendInvoiceAsEmail } from '../mailer';
@@ -72,16 +71,16 @@ router.post('/sendInvoiceEmail/:invoiceId', (req: Request, res: Response) => {
     });
 });
 
-router.get('/quote/:quoteId', (req: Request, res: Response) => {
-    let { quoteId }: { quoteId: string } = req.params;
-    let requestedQuote: Quote = new Quote('', new Date(), '', [], new Date());
-    quotes.forEach((quote: Quote) => {
-        if (quote.id === quoteId) {
-            requestedQuote = quote;
-        }
-    });
-    res.send(requestedQuote);
-});
+// router.get('/quote/:quoteId', (req: Request, res: Response) => {
+//     let { quoteId }: { quoteId: string } = req.params;
+//     let requestedQuote: Quote = new Quote('', new Date(), '', [], new Date());
+//     quotes.forEach((quote: Quote) => {
+//         if (quote.id === quoteId) {
+//             requestedQuote = quote;
+//         }
+//     });
+//     res.send(requestedQuote);
+// });
 
 router.post('/addCustomer', (req: Request, res: Response) => {
     let customerToAdd: Customer = req.body;

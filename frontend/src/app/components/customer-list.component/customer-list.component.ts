@@ -13,7 +13,8 @@ export class CustomerListComponent implements OnInit {
   public customers: CustomerSummary[] = new Array<CustomerSummary>();
 
   constructor(private router: Router,
-              private customerListService: CustomerListService) { }
+              private customerListService: CustomerListService){
+  }
 
   ngOnInit() {
     this.customerListService.getCustomerSummaries().subscribe((customers: CustomerSummary[]) => {

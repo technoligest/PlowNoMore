@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5100",
+    "start": "ng serve --port 5100 --ssl true --ssl-cert \"ssl_certs/server.crt\" --ssl-key \"ssl_certs/server.key\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -26,9 +26,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.1",
     "@fortawesome/free-solid-svg-icons": "^5.1.1",
     "@schematics/angular": "^0.7.1",
+    "@types/facebook-js-sdk": "^2.8.6",
     "add": "^2.0.6",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "ngx-facebook": "^2.4.0",
     "rxjs": "^6.0.0",
     "yarn": "^1.7.0",
     "zone.js": "^0.8.26"

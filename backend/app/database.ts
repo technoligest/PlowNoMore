@@ -199,8 +199,8 @@ export class Database {
   public addInvoice(invoiceToAdd: Invoice, callback: (addedInvoice: Invoice) => void) {
     this.connectionPool.acquire((error: any, connection: any) => {
       const dateIssued = convertToSQLDate(invoiceToAdd.dateIssued);
-      const isPaid = convertToSQLBoolean(invoiceToAdd.isPaid)
-      const isCompleted = convertToSQLBoolean(invoiceToAdd.isCompleted)
+      const isPaid = convertToSQLBoolean(invoiceToAdd.paid)
+      const isCompleted = convertToSQLBoolean(invoiceToAdd.completed)
       const requestLine = `INSERT INTO invoices (dateIssued, customerId, completed, paid) VALUES ('${dateIssued}', '${invoiceToAdd.customerId}', ${isCompleted}, ${isPaid}); SELECT SCOPE_IDENTITY();`;
       const reqFunc = (err: Error, rowCount: number, rows:any[]) => {
         if(err){
@@ -236,8 +236,8 @@ export class Database {
       console.log(invoiceToUpdate.dateIssued);
       const dateIssued = convertToSQLDate(invoiceToUpdate.dateIssued);
       console.log(dateIssued);
-      const isPaid = convertToSQLBoolean(invoiceToUpdate.isPaid)
-      const isCompleted = convertToSQLBoolean(invoiceToUpdate.isCompleted)
+      const isPaid = convertToSQLBoolean(invoiceToUpdate.paid)
+      const isCompleted = convertToSQLBoolean(invoiceToUpdate.completed)
       const requestLine = `UPDATE invoices SET dateIssued='${dateIssued}', completed=${isCompleted}, paid=${isPaid} WHERE id='${invoiceToUpdate.id}'`;
       console.log(requestLine);
       const reqFunc = (err: Error, rowCoutn: number, rows: any[]) => {

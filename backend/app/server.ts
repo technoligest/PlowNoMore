@@ -9,7 +9,7 @@ import { Connection, ConnectionConfig } from 'tedious';
 // Import WelcomeController from controllers entry point
 import { WelcomeController } from './controllers';
 import { APIController } from './controllers';
-import { Database } from './database';
+
 // Create a new express application instance
 const app: express.Application = express();
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
@@ -33,6 +33,14 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+    console.log("requesting!!!");
+    console.log(req.headers['authorization']);
+    // next();
+    res.status(401).send({'error': 'die!'});
+    // next();
+});
 
 // The port the express app will listen on
 const port: number = 3000;

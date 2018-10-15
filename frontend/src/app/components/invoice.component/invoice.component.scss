@@ -2,11 +2,8 @@
   display: block;
 }
 .inputForm {
-  width: 85vw;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  width: 85vw;
   margin: auto;
   .submit-buttons{
     margin: auto;
@@ -14,7 +11,7 @@
     margin-bottom: 50px;
     text-align: center;
     display: flex;
-    width: 352px;
+    width: 220px;
     .separator{
       width: 44px;
     }

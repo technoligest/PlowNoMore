@@ -1,10 +1,10 @@
 .login-form {
-  width: 85vw;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  width: 85vw;
   margin: auto;
+  .fb-login-button {
+    margin: auto;
+  }
   .login-button-section{
     margin: auto;
     margin-top: 30px;

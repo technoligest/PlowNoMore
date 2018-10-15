@@ -11,6 +11,7 @@
     <input matInput placeholder="Password" [(ngModel)]="password" name="password" [type]="hidePassword ? 'password' : 'text'" required>
     <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
+  <div (click)="facebookLogin()">Log into Facebook</div>
   <div class="login-button-section">
     <button mat-raised-button color="primary" class="login-button" type="submit">
       Login

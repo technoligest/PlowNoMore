@@ -1,7 +1,10 @@
 <div class="header">
-  <h1 class="title-text">
+  <h1 class="header-text">
     Customer Edit
   </h1>
+  <button mat-icon-button color="warn" class="submit-button header-left-button" type="button" (click)="onFormCancel()">
+    <i class="fas fa-arrow-alt-circle-left fa-3x"></i>
+  </button>
 </div>
 <form class="customer-form" (ngSubmit)="saveCustomer()" #editCustomerForm="ngForm">
   <mat-form-field class="form-field">
@@ -14,10 +17,6 @@
     <input matInput placeholder="Phone" [formControl]='phoneValidator'  name="phone" required>
   </mat-form-field>
   <div class="submit-buttons">
-    <button mat-raised-button color="warn" class="submit-button" type="button" (click)="onFormCancel()">
-      Cancel
-    </button>
-    <div class="separator"></div>
     <button mat-raised-button color="accent" class="submit-button" type="submit">
       Save
     </button>
@@ -25,7 +24,7 @@
 </form>
 
 <div *ngIf="customerIsUploaded">
-  <button mat-raised-button color="accent" class="add-button" type="button" (click)="addNewInvoice()">
+  <button mat-raised-button color="primary" class="add-button" type="button" (click)="addNewInvoice()">
     Add Invoice
   </button>
   <mat-accordion>
