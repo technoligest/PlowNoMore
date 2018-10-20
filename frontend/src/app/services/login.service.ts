@@ -37,8 +37,8 @@ export class LoginService {
 
   public getToken(): string {
     return this.facebookLoginStatus && this.facebookLoginStatus.authResponse
-           ? this.facebookLoginStatus.authResponse.accessToken
-           : '';
+            ? this.facebookLoginStatus.authResponse.accessToken
+            : '';
   }
 
   public canLogIn(username: string, password: string): Observable<boolean> {
@@ -71,10 +71,13 @@ export class LoginService {
     return result;
   }
 
-  public get isLoggedIn(): boolean {
-    if (!this.facebookLoginStatus) {
-      return false;
-    }
-    return this.facebookLoginStatus.status === 'connected';
+  public isLoggedIn(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      if (!this.facebookLoginStatus
+          || this.facebookLoginStatus.status !== 'connected') {
+        reject();
+      }
+      resolve();
+    });
   }
 }

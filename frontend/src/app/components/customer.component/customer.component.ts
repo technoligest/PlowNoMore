@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from '../../general.classes/Customer';
 import { FormControl } from '@angular/forms';
 import { Validators } from '../../general.classes/Globals';
-import { ActivatedRoute, Router } from '@angular/router';
-import { baseUrl } from '../../general.classes/Globals';
+import {
+  ActivatedRoute,
+  Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { Invoice, Ideable, Item } from '../../general.classes';
 import { Quote } from '../../general.classes/Quote';
-import { CustomerService } from '../../services/customer.service';
-import { InvoiceService } from '../../services/invoice.service';
+import {
+  CustomerService,
+  InvoiceService } from 'src/app/services';
 
 @Component({
   selector: 'app-customer',

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from '../../general.classes/Invoice';
 import { FormControl } from '@angular/forms';
-import { Validators, baseUrl } from '../../general.classes/Globals';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Validators } from '../../general.classes/Globals';
+import {
+  ActivatedRoute,
+  Router } from '@angular/router';
 import { Customer } from '../../general.classes/Customer';
 import { MatSnackBar } from '@angular/material';
 import { InvoiceService } from '../../services/invoice.service';
@@ -110,7 +111,7 @@ export class InvoiceComponent implements OnInit {
         (this.newItemCostValidator.value as number)
       ));
       this.snackBar.open('Item has been added!', 'Yaay', {duration: 5000});
-      //TODO: Reseting is keeping the inputs red.
+      // TODO: Reseting is keeping the inputs red.
       this.newItemCostValidator.reset();
       this.newItemDescriptionValidator.reset();
     } else {

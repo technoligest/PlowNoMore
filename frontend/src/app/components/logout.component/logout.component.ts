@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookService, InitParams, LoginStatus } from 'ngx-facebook';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
+import { LoginService } from 'src/app/services';
 
 @Component({
   selector: 'app-logout',
@@ -12,10 +11,6 @@ export class LogoutComponent implements OnInit {
 
   constructor(private router: Router,
               private loginService: LoginService) {
-  }
-
-  public get isLoggedIn(): boolean {
-    return this.loginService.isLoggedIn;
   }
 
   ngOnInit() {

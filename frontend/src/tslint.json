@@ -12,6 +12,15 @@
             "element",
             "app",
             "kebab-case"
-        ]
+        ],
+        "no-any": true,
+        "only-arrow-functions": true,
+        "no-conditional-assignment": true,
+        "max-line-length": [true, 120],
+        "max-file-line-count": [true, 300],
+        "no-duplicate-imports": true,
+        "prefer-const": true,
+        "arrow-return-shorthand": true,
+        "no-unused-variable": true
     }
 }

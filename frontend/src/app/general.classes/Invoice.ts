@@ -35,10 +35,10 @@ export class Invoice extends AccountingForm {
   }
 
   public getHttpPayload(): InvoiceHttpPayload {
-    console.log("from http payload convertor");
+    console.log('from http payload convertor');
     console.log(this.dateIssued);
     console.log(this.dateIssued.toUTCString());
-    console.log("end");
+    console.log('end');
     return {
       id: this.id,
       dateIssued: this.dateIssued.toUTCString(),

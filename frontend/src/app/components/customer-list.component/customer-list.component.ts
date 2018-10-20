@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CustomerListService } from '../../services/customer-list.service';
-import { CustomerSummary } from '../../general.classes';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Router
+} from '@angular/router';
+import {
+  CustomerListService
+} from 'src/app/services';
+import {
+  CustomerSummary
+} from 'src/app/general.classes';
 
 
 @Component({
@@ -10,11 +19,10 @@ import { CustomerSummary } from '../../general.classes';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-  public customers: CustomerSummary[] = new Array<CustomerSummary>();
+  public customers: CustomerSummary[] = new Array < CustomerSummary > ();
 
   constructor(private router: Router,
-              private customerListService: CustomerListService){
-  }
+    private customerListService: CustomerListService) {}
 
   ngOnInit() {
     this.customerListService.getCustomerSummaries().subscribe((customers: CustomerSummary[]) => {

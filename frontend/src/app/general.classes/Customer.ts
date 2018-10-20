@@ -4,7 +4,7 @@ export class CustomerSummary {
   constructor(public id: string, public name: string) {}
 }
 
-export class Customer implements Ideable{
+export class Customer implements Ideable {
   constructor (public id: string,
                public name: string,
                public email: string,

@@ -1,45 +1,83 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule,
-         ReactiveFormsModule
-        } from '@angular/forms';
+import {
+  FormsModule,
+  ReactiveFormsModule
+  } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatButtonModule,
-         MatMenuModule,
-         MatIconModule,
-         MatGridListModule,
-         MatCardModule,
-         MatInputModule,
-         MatFormFieldModule,
-         MatListModule,
-         MatExpansionModule,
-         MatDatepickerModule,
-         MatNativeDateModule,
-         MatSnackBarModule
-         } from '@angular/material';
-import { CustomerComponent } from './components/customer.component/customer.component';
-import { CustomerListComponent } from './components/customer-list.component/customer-list.component';
-import { InvoiceComponent } from './components/invoice.component/invoice.component';
-import { LoginPageComponent } from './components/login-page.component/login-page.component';
+import {
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
+  MatGridListModule,
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatListModule,
+  MatExpansionModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSnackBarModule
+  } from '@angular/material';
+import {
+  CustomerComponent,
+  CustomerListComponent,
+  InvoiceComponent,
+  LoginPageComponent,
+  InvoicingMainComponent,
+  LogoutComponent,
+  FooterComponent
+  } from './components';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InvoicingMainComponent } from './components/invoicing-main/invoicing-main.component';
 import { FacebookModule } from 'ngx-facebook';
-import { LogoutComponent } from './components/logout/logout.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { TokenInterceptor } from './services/interceptor';
+import {
+  AuthorizedGuard,
+  AnonymousGuard
+  } from './guards';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginPageComponent },
-  { path: 'customerlist', component: CustomerListComponent },
-  { path: 'customer', component: CustomerComponent },
-  { path: 'customer/:id', component: CustomerComponent },
-  { path: 'invoice/:id', component: InvoiceComponent },
-  { path: 'invoice', component: InvoiceComponent },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    canActivate: [ AnonymousGuard ]
+  },
+  {
+    path: 'customerlist',
+    component: CustomerListComponent,
+    canActivate: [ AuthorizedGuard ]},
+  {
+    path: 'customer',
+    component: CustomerComponent,
+    canActivate: [ AuthorizedGuard ]
+  },
+  {
+    path: 'customer/:id',
+    component: CustomerComponent,
+    canActivate: [ AuthorizedGuard ]
+  },
+  {
+    path: 'invoice/:id',
+    component: InvoiceComponent,
+    canActivate: [ AuthorizedGuard ]
+  },
+  {
+    path: 'invoice',
+    component: InvoiceComponent,
+    canActivate: [ AuthorizedGuard ]
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
+    pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -79,7 +117,9 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AnonymousGuard,
+    AuthorizedGuard
   ],
   bootstrap: [
     InvoicingMainComponent,

@@ -41,6 +41,7 @@ export class InvoiceService {
     );
   }
 
+  // tslint:disable-next-line:no-any
   public createInvoiceFromGenericObject(invoice: any): Invoice {
     console.log(invoice.dateIssued);
     console.log(new Date(invoice.dateIssued));

@@ -4,8 +4,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
-import { Connection, ConnectionConfig } from 'tedious';
-
 // Import WelcomeController from controllers entry point
 import { WelcomeController } from './controllers';
 import { APIController } from './controllers';
