@@ -5,12 +5,15 @@ import { Observable } from 'rxjs';
 import { FacebookService, InitParams, LoginStatus, LoginResponse } from 'ngx-facebook';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  private static currToken: string;
   private facebookLoginStatus: LoginStatus;
+  private http: AuthHttp;
   constructor(private httpClient: HttpClient,
               private fb: FacebookService,
               private loginSnackBar: MatSnackBar,
@@ -35,12 +38,6 @@ export class LoginService {
     });
   }
 
-  public getToken(): string {
-    return this.facebookLoginStatus && this.facebookLoginStatus.authResponse
-            ? this.facebookLoginStatus.authResponse.accessToken
-            : '';
-  }
-
   public canLogIn(username: string, password: string): Observable<boolean> {
     const url = baseUrl + 'login/' + username + '/' + password;
     const options = {
@@ -60,17 +57,6 @@ export class LoginService {
     return result;
   }
 
-  public facebookLogin(): Promise<boolean> {
-    const result = new Promise<boolean>((resolve, reject) => {
-      this.fb.login().then((loginResponse: LoginResponse) => {
-        const isLoggedIn = loginResponse.status === 'connected';
-        this.updateFacebookLoginStatus();
-        resolve(isLoggedIn);
-      });
-    });
-    return result;
-  }
-
   public isLoggedIn(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       if (!this.facebookLoginStatus
@@ -79,5 +65,44 @@ export class LoginService {
       }
       resolve();
     });
+  }
+
+  public getCurrentUser() {
+    return new Promise((resolve, reject) => {
+      const url = baseUrl + 'auth/me';
+      return this.httpClient.get(url).toPromise()
+      .then((response) => {
+        resolve(response);
+      })
+      .catch(() => reject());
+    });
+  }
+
+  //NEW STUFF BELOW
+  public facebookLogin(): Promise<boolean> {
+    const result = new Promise<boolean>((resolve, reject) => {
+      this.fb.login().then((loginResponse: LoginResponse) => {
+        const isLoggedIn = loginResponse.status === 'connected';
+        if (isLoggedIn) {
+          localStorage.setItem('token', loginResponse.authResponse.accessToken);
+          const url = `${baseUrl}auth/facebook`;
+          this.httpClient.post(url, '').toPromise().then((response: any) => {
+            console.log('the response');
+            console.log(response);
+          });
+        } else {
+          reject();
+        }
+        this.updateFacebookLoginStatus();
+        resolve(isLoggedIn);
+      }).catch(() => {
+        reject();
+      });
+    });
+    return result;
+  }
+
+  public getToken(): string {
+    return localStorage.getItem('token');
   }
 }

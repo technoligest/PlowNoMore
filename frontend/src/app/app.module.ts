@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   FormsModule,
   ReactiveFormsModule
-  } from '@angular/forms';
+} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -20,7 +20,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSnackBarModule
-  } from '@angular/material';
+} from '@angular/material';
 import {
   CustomerComponent,
   CustomerListComponent,
@@ -29,22 +29,18 @@ import {
   InvoicingMainComponent,
   LogoutComponent,
   FooterComponent
-  } from './components';
+} from './components';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FacebookModule } from 'ngx-facebook';
 import { TokenInterceptor } from './services/interceptor';
+
+
 import {
   AuthorizedGuard,
   AnonymousGuard
-  } from './guards';
-
+} from './guards';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
   {
     path: 'login',
     component: LoginPageComponent,
@@ -53,7 +49,8 @@ const appRoutes: Routes = [
   {
     path: 'customerlist',
     component: CustomerListComponent,
-    canActivate: [ AuthorizedGuard ]},
+    canActivate: [ AuthorizedGuard ]
+  },
   {
     path: 'customer',
     component: CustomerComponent,
@@ -75,9 +72,15 @@ const appRoutes: Routes = [
     canActivate: [ AuthorizedGuard ]
   },
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     redirectTo: '/login',
-    pathMatch: 'full' }
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

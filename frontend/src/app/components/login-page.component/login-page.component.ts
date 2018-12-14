@@ -45,10 +45,12 @@ export class LoginPageComponent implements OnInit {
   public facebookLogin() {
     this.loginService.facebookLogin().then((isLoggedIn: boolean) => {
       if (isLoggedIn) {
-        console.log('Logged Into FAcebook!!');
+        this.router.navigate(['/customerList']);
       } else {
         console.log('NOT Logged into facebook');
       }
+    }).catch(() => {
+      console.log('some errors happened');
     });
   }
 }

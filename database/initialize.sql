@@ -27,7 +27,8 @@ CREATE TABLE quotes (
 CREATE TABLE users (
   username varchar(255) PRIMARY KEY,
   password varchar(255),
-  fb_user_id varchar(255),
+  auth_token varchar(255),
+  auth_type varchar(255),
   email varchar(255),
   phone varchar(255)
 )

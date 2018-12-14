@@ -13,9 +13,8 @@ export const Validators = {
 // export const baseUrl = 'https://plownomorenodebackend.azurewebsites.net/api/';
 export const baseUrl = 'http://localhost:3000/api/';
 
-
 export const stringResources = {
-
+  CustomerInvoices: 'Invoices'
 };
 
 export const features = {

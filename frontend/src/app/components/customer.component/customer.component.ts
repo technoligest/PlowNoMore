@@ -88,20 +88,6 @@ export class CustomerComponent implements OnInit {
    }});
   }
 
-  // private pullQuotes(quoteIds: string[]) {
-  //   quoteIds.forEach((quoteId: string) => {
-  //     // this.invoiceService.getInvoice()
-  //     // const url = baseUrl + 'quote/' + quoteId;
-  //     // const options = {
-  //     //   observe: 'body' as 'body',
-  //     //   responseType: 'json' as 'json'
-  //     // };
-  //     // this.httpClient.get<Quote>(url, options).subscribe((quote: Quote ) => {
-  //     //   this.customerQuotes.push(quote);
-  //     // });
-  //   });
-  // }
-
   private pullInvoices(invoiceIds: string[]) {
     invoiceIds.forEach((invoiceId: string) => {
       this.invoiceService.getInvoice(invoiceId).subscribe(

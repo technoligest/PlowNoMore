@@ -1,6 +1,7 @@
 # Simple Small Business App
 Allows the user to create invoices and quotes and send them to customers.
 
+View at [https://plownomore.azurewebsites.net/index.html](https://plownomore.azurewebsites.net/index.html)
 #  Frontend
 The frontend is written in angular with many dependencies. It can run locally in a browser.
 

@@ -16,7 +16,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/:name', (req: Request, res: Response) => {
     // Extract the name from the request parameters
-    let { name } = req.params;
+    const { name } = req.params;
 
     // Greet the given name
     res.send(`Hellos, ${name}`);
